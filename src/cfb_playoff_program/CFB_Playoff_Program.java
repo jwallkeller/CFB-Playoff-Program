@@ -17,13 +17,13 @@ public class CFB_Playoff_Program {
         Team OhioState = new Team("Ohio State");
         teams.add(OhioState);
         OhioState.printRecordNumerical();
-        
-        OhioState.addWin("Indiana", 29.4, 49, 10);
-        OhioState.addWin("Wisconsin", 12.7, 28, 7);
-        OhioState.addWin("Michigan", 39.2, 56, 14);
-        OhioState.addLoss("Iowa", 10.8, 24, 17);
-        OhioState.addWin("Maryland", 56.4, 48, 3);
-        
+
+        OhioState.addGame("Indiana", 29.4, 49, 10);
+        OhioState.addGame("Wisconsin", 12.7, 28, 7);
+        OhioState.addGame("Michigan", 39.2, 56, 14);
+        OhioState.addGame("Iowa", 10.8, 17, 24);
+        OhioState.addGame("Maryland", 56.4, 48, 3);
+        OhioState.addGame("Purdue", 20.2, 21, 24);
         
         OhioState.printRecord();
         // Create Excel spreadsheet with ranks and scores to read from and populate the teams

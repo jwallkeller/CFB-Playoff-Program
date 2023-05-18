@@ -42,24 +42,19 @@ public class Team {
         this.SoS = SoS;
     }
     
-    public void addWin(String opponent, double opponentSoS, int winningScore, int losingScore) {
-        Game newGame = new Game(this.name, opponent, 1, winningScore, losingScore, opponentSoS);
-        games.add(newGame);
-        
-        wins += 1;
-        
-        this.pointsScored += winningScore;
-        this.pointsGivenUp += losingScore;
-    }
-    
-    public void addLoss(String opponent, double opponentSoS, int winningScore, int losingScore) {
-        Game newGame = new Game(this.name, opponent, 0, winningScore, losingScore, opponentSoS);
-        games.add(newGame);
-        
-        losses += 1;
-        
-        this.pointsGivenUp += winningScore;
-        this.pointsScored += losingScore;
+    public void addGame(String opponent, double opponentSoS, int score, int opponentScore) {
+        if (score > opponentScore) {
+            Game newGame = new Game(this.name, opponent, 1, score, opponentScore, opponentSoS);
+            games.add(newGame);
+            wins += 1;
+        } else {
+            Game newGame = new Game(this.name, opponent, 0, opponentScore, score, opponentSoS);
+            games.add(newGame);
+            losses += 1;
+        }
+
+        this.pointsGivenUp += opponentScore;
+        this.pointsScored += score;
     }
 
     public int getPointsScored() {
